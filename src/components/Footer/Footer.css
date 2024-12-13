@@ -1,0 +1,80 @@
+/* Dark Theme Styles */
+.footer-container {
+  background-color: #1a1a1a;
+  color: #ffffff;
+  padding: 20px 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center; /* Center content horizontally */
+}
+
+.footer-content {
+  display: flex;
+  flex-direction: row;
+  justify-content: center; /* Center the sections */
+  align-items: flex-start; /* Align sections to the top */
+  width: 100%;
+  max-width: 1200px; /* Set a max-width for the footer content */
+  gap: 50px; /* Add space between sections */
+  padding: 20px;
+  box-sizing: border-box;
+}
+
+.footer-section {
+  text-align: center; /* Center the text within each section */
+  flex: 1; /* Allow sections to take equal width */
+  max-width: 300px; /* Limit the width of individual sections */
+}
+
+.footer-section h3 {
+  color: #66b3ff;
+  margin-bottom: 10px;
+}
+
+.footer-section p,
+.footer-section a {
+  color: #cccccc;
+}
+
+.footer-links {
+  list-style-type: none;
+  padding: 0;
+}
+
+.footer-links li {
+  margin: 5px 0;
+}
+
+.footer-links a {
+  text-decoration: none;
+  color: #cccccc;
+}
+
+.footer-links a:hover {
+  color: #ffffff;
+}
+
+.footer-bottom {
+  border-top: 1px solid #333333;
+  color: #808080;
+  width: 100%;
+  text-align: center;
+  margin-top: 20px;
+  padding: 10px 0;
+}
+
+.footer-link::after {
+  background-color: #66b3ff;
+}
+
+@media (max-width: 768px) {
+  .footer-content {
+    flex-direction: column; /* Stack sections vertically on smaller screens */
+    align-items: center;
+  }
+
+  .footer-section {
+    max-width: none;
+    margin-bottom: 10px; /* Add spacing between stacked sections */
+  }
+}

@@ -1,0 +1,42 @@
+.hero-container {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #f9fafb; /* Light gray background */
+  }
+  
+  .hero-content {
+    text-align: center;
+  }
+  
+  .hero-logo {
+    width: 8rem;
+    height: 8rem;
+    margin-bottom: 2rem;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  
+  .hero-title {
+    font-size: 3rem;
+    font-weight: bold;
+    margin-bottom: 1rem;
+    color: #1f2937; /* Dark gray text */
+  }
+  
+  .hero-tagline {
+    font-size: 1.25rem;
+    color: #4b5563; /* Medium gray text */
+    margin-bottom: 2rem;
+  }
+  
+  .hero-description {
+    max-width: 32rem; /* 2xl size */
+    margin-left: auto;
+    margin-right: auto;
+    color: #6b7280; /* Lighter gray text */
+    font-size: 1.125rem; /* 18px */
+    line-height: 1.75;
+  }
+  

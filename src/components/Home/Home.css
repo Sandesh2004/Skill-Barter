@@ -1,0 +1,169 @@
+/* Container styles */
+.container {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  color: #ffffff;
+  position: relative;
+  overflow: hidden;
+  background-image: url('https://images.unsplash.com/photo-1523240795612-9a054b0db644?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80');
+  background-size: cover;
+  background-position: relative;
+  background-repeat: no-repeat;
+  background-size: 100% 80%;
+  background-attachment: fixed;
+}
+
+main {
+  flex: 1;
+  padding: 80px 5% 40px;
+  max-width: 1200px;
+  margin: 0 auto;
+  width: 100%;
+  animation: fadeIn 1.5s ease-out;
+}
+
+/* Section styling */
+.content-section {
+  background: #262626;
+  padding: 30px;
+  border-radius: 10px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+  margin-bottom: 30px;
+  animation: slideDown 1s ease-out;
+}
+
+.content-section h3 {
+  color: #3b82f6;
+  font-size: 24px;
+  margin-bottom: 20px;
+  font-weight: 700;
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
+}
+
+.content-section p {
+  color: #cccccc;
+  line-height: 1.6;
+  margin-bottom: 25px;
+  font-size: 1.1rem;
+}
+
+/* Button container */
+.content-buttons {
+  display: flex;
+  gap: 15px;
+  flex-wrap: wrap;
+  animation: slideUp 1s ease-out;
+}
+
+.content-buttons button {
+  padding: 1rem 2.5rem;
+  border: none;
+  border-radius: 50px;
+  background: linear-gradient(45deg, #2563eb, #3b82f6);
+  color: white;
+  font-size: 1.1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 15px rgba(37, 99, 235, 0.2);
+}
+
+.content-buttons button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(37, 99, 235, 0.3);
+  background: linear-gradient(45deg, #1d4ed8, #2563eb);
+}
+
+.content-buttons button:active {
+  transform: translateY(1px);
+}
+
+/* Image description section */
+.image-description {
+  background: #262626;
+  padding: 30px;
+  border-radius: 10px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+  animation: slideUp 1s ease-out;
+}
+
+.image-description h3 {
+  color: #3b82f6;
+  font-size: 24px;
+  margin-bottom: 20px;
+  font-weight: 700;
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
+}
+
+.image-description p {
+  color: #cccccc;
+  line-height: 1.6;
+  font-size: 1.1rem;
+}
+
+/* Animations */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes slideDown {
+  from {
+    opacity: 0;
+    transform: translateY(-30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes slideUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+  main {
+    padding: 60px 20px 20px;
+  }
+  
+  .content-section,
+  .image-description {
+    padding: 20px;
+  }
+  
+  .content-buttons {
+    flex-direction: column;
+  }
+  
+  .content-buttons button {
+    width: 100%;
+    padding: 0.8rem 2rem;
+    font-size: 1rem;
+  }
+  
+  .content-section h3,
+  .image-description h3 {
+    font-size: 1.8rem;
+  }
+  
+  .content-section p,
+  .image-description p {
+    font-size: 1rem;
+  }
+}
+
+

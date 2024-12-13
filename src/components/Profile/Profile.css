@@ -1,0 +1,220 @@
+/* General body styling for dark theme */
+body {
+  background-color: #121212; /* Dark background */
+  color: #E0E0E0; /* Light text for contrast */
+  font-family: 'Arial', sans-serif;
+}
+
+.profile-wrapper {
+  padding: 20px;
+  max-width: 1200px;
+  margin: 0 auto;
+  color: #fff;
+}
+
+.profile-container {
+  background-color: #1F1F1F; /* Dark background for profile container */
+  padding: 30px;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+}
+
+h2 {
+  font-size: 2rem;
+  margin-bottom: 20px;
+  color: #fff;
+  text-align: center;
+}
+
+.error-message {
+  color: #F44336; /* Red color for errors */
+  font-size: 1rem;
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+.profile-info {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 15px;
+}
+
+.profile-photo {
+  border-radius: 50%;
+  width: 120px;
+  height: 120px;
+  object-fit: cover;
+  border: 3px solid #fff;
+}
+
+button {
+  background-color: #6200EE; /* Purple button color */
+  color: #fff;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+button:hover {
+  background-color: #3700B3; /* Darker purple on hover */
+}
+
+button:disabled {
+  background-color: #9E9E9E; /* Grey button for disabled state */
+  cursor: not-allowed;
+}
+
+button-group {
+  display: flex;
+  gap: 10px;
+  justify-content: center;
+}
+
+label {
+  display: block;
+  margin-bottom: 10px;
+  font-weight: bold;
+  color: #fff;
+}
+
+input[type="text"],
+input[type="number"],
+textarea,
+input[type="file"] {
+  width: 100%;
+  padding: 10px;
+  background-color: #333; /* Dark background for inputs */
+  color: #fff;
+  border: 1px solid #444; /* Darker border */
+  border-radius: 5px;
+  margin-bottom: 15px;
+}
+
+input[type="text"]:focus,
+input[type="number"]:focus,
+textarea:focus,
+input[type="file"]:focus {
+  outline: none;
+  border-color: #6200EE; /* Blue border on focus */
+}
+
+textarea {
+  resize: vertical;
+  min-height: 100px;
+}
+
+.course-field {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+}
+
+.course-field input {
+  width: 80%;
+}
+
+.course-field button {
+  background-color: #F44336; /* Red for remove button */
+  color: #fff;
+  padding: 5px 10px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.course-field button:hover {
+  background-color: #D32F2F; /* Darker red on hover */
+}
+
+button[type="button"]:disabled {
+  background-color: #9E9E9E;
+  cursor: not-allowed;
+}
+
+/* Image preview styling */
+img {
+  max-width: 100%;
+  border-radius: 8px;
+  margin-top: 10px;
+}
+
+/* General Styles */
+.verification-container {
+  margin-top: 30px;
+  background-color: #1F1F1F;
+  border-radius: 8px;
+  padding: 20px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  max-width: 500px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+h3 {
+  font-size: 1.6rem;
+  color: #fff;
+  margin-bottom: 15px;
+  text-align: center;
+}
+
+.test-selection {
+  display: flex;
+  justify-content: space-between; /* Space between dropdown and button */
+  align-items: center; /* Vertically center the items */
+  gap: 15px; /* Space between the items */
+}
+
+.form-select {
+  padding: 12px 15px;
+  font-size: 1rem;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+  background-color: #fff;
+  cursor: pointer;
+  transition: border-color 0.3s ease, background-color 0.3s ease;
+  flex-grow: 1; /* Allow the dropdown to take available space */
+}
+
+.form-select:focus {
+  outline: none;
+  border-color: #007bff;
+  background-color: #f0f8ff;
+}
+
+.btn {
+  padding: 8px 15px; /* Reduced padding to make button smaller */
+  font-size: 0.9rem; /* Smaller font size */
+  font-weight: bold;
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.btn:hover {
+  background-color: #0056b3;
+}
+
+.mt-2 {
+  margin-top: 10px;
+}
+
+@media (max-width: 768px) {
+  .verification-container {
+    padding: 15px;
+    margin-top: 20px;
+  }
+
+  h3 {
+    font-size: 1.4rem;
+  }
+
+  .form-select, .btn {
+    font-size: 0.95rem;
+  }
+}

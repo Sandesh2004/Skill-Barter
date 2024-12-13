@@ -1,0 +1,175 @@
+/* General container styles */
+.search-course {
+    background: #1e1e1e; /* Dark background similar to the exchange form */
+    padding: 30px; /* Padding for inner space */
+    border-radius: 10px; /* Rounded corners */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.4); /* Shadow for a floating effect */
+    margin-bottom: 20px; /* Space below the section */
+    animation: slideDown 1s ease-out; /* Apply animation */
+    max-width: 1120px; /* Optional: limit max width */
+    margin: 0 auto; /* Center the container horizontally */
+    text-align: center; /* Align text to center */
+  }
+  
+  /* Heading styles */
+  .search-course h2 {
+    font-size: 2rem;
+    margin-bottom: 20px;
+    font-weight: 700;
+  }
+  
+  /* Input field styles */
+  .search-course input {
+    background: #1e1e1e; /* Dark background similar to the select field */
+    border: 1px solid #444; /* Border style matching the select field */
+    color: #ffffff; /* White text */
+    padding: 12px; /* Adjust padding to match the select field */
+    border-radius: 8px; /* Border radius for rounded corners */
+    margin-bottom: 20px; /* Bottom margin for spacing */
+    width: 100%; /* Full width */
+    font-size: 1rem; /* Font size */
+}
+
+  
+  .search-course input:focus {
+    outline: none;
+    border-color: #00aaff;
+  }
+  
+  /* Dropdown styles */
+  .search-course select {
+    display: block; /* Make the select element a block-level element */
+    width: 00%;
+    padding: 10px;
+    margin: 10px 0;
+    font-size: 1rem;
+    border: 2px solid #ccc;
+    border-radius: 5px;
+    background-color: #2d2d2d;
+    color: #ffffff;
+  }
+  
+  .search-course select:focus {
+    outline: none;
+    border-color: #00aaff;
+  }
+  
+  /* Button styles */
+  .search-course button {
+    background-color: #00aaff;
+    color: #ffffff;
+    padding: 10px 20px;
+    font-size: 1rem;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    width: 100%;
+  }
+  
+  .search-course button:disabled {
+    background-color: #aaa;
+    cursor: not-allowed;
+  }
+  
+  .search-course button:hover:enabled {
+    background-color: #0088cc;
+  }
+  
+  /* Error and success message styles */
+  .search-course p {
+    font-size: 1rem;
+    font-weight: 500;
+    margin-top: 10px;
+  }
+  
+  .search-course p[style*="color: red"] {
+    color: red;
+  }
+  
+  .search-course p[style*="color: green"] {
+    color: green;
+  }
+  
+  /* User listing styles */
+  .search-course ul {
+    list-style-type: none;
+    padding: 0;
+  }
+  
+  .search-course li {
+    background-color: #2d2d2d;
+    margin: 10px 0;
+    padding: 20px;
+    border-radius: 5px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    color: #ffffff;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+    transition: transform 0.3s ease;
+  }
+  
+  .search-course li:hover {
+    transform: scale(1.05);
+  }
+  
+  /* Profile image styles */
+  .search-course img {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    margin-bottom: 10px;
+  }
+  
+  /* Profile and exchange button styles */
+  .search-course button {
+    width: 100%;
+    margin: 5px 0;
+  }
+  
+  .search-course button:hover {
+    background-color: #0088cc;
+  }
+  
+  /* Animations */
+  @keyframes slideDown {
+    from {
+      opacity: 0;
+      transform: translateY(-30px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  
+  /* Responsive design adjustments */
+  @media (min-width: 768px) {
+    .search-course {
+      padding: 40px;
+    }
+  
+    .search-course h2 {
+      font-size: 2.5rem;
+    }
+  
+    .search-course input,
+    .search-course select,
+    .search-course button {
+      width: 50%;
+      margin: 10px auto;
+    }
+  
+    .search-course ul {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+  
+    .search-course li {
+      width: 250px;
+      margin: 15px;
+    }
+  }
+  
