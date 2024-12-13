@@ -1,6 +1,8 @@
 
 const express = require("express");
 const router = express.Router();
+const Profile = require("../models/Profile"); // Adjust the path to your Profile model
+
 // verifyRoutes.js
 
 // Hardcoded questions for different courses
@@ -266,7 +268,7 @@ router.get("/verify/:course", (req, res) => {
 });
 
 // Handle test submission
-router.post("/verify/:course/submit", (req, res) => {
+router.post("/verify/:course/submit", async (req, res) => {
   const { course } = req.params;
   const { answers } = req.body;
 
@@ -288,6 +290,8 @@ router.post("/verify/:course/submit", (req, res) => {
 
   const score = Math.round((correctAnswers / totalQuestions) * 100);
   const status = score >= 50 ? "Passed" : "Failed";
+
+
 
   res.json({
     score,

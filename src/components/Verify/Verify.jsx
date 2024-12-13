@@ -9,29 +9,22 @@ const Verify = () => {
   const [answers, setAnswers] = useState([]);
   const [result, setResult] = useState(null);
   const [loading, setLoading] = useState(true);
-  const [isVerified, setIsVerified] = useState(false); // State to track course verification status
 
   useEffect(() => {
-    // Fetch course details and questions for the specific course
-    const fetchCourseData = async () => {
+    // Fetch questions for the specific course
+    const fetchQuestions = async () => {
       try {
-        // Fetch course verification status and questions
         const response = await axios.get(`http://localhost:5000/api/verify/${course}`);
         setQuestions(response.data.questions); // Assume backend returns questions for the course
-        
-        // Check if the course is verified
-        const courseDetails = response.data.courseDetails; // Assume backend returns course verification status
-        setIsVerified(courseDetails.isVerified);
-
         setAnswers(new Array(response.data.questions.length).fill(null)); // Initialize empty answers
         setLoading(false);
       } catch (error) {
-        console.error("Error fetching course data:", error);
+        console.error("Error fetching questions:", error);
         setLoading(false);
       }
     };
 
-    fetchCourseData();
+    fetchQuestions();
   }, [course]);
 
   const handleAnswerChange = (index, optionIndex) => {
@@ -46,10 +39,9 @@ const Verify = () => {
         answers,
       });
       setResult(response.data);
-      // Update the course status to verified if the test is passed
+      // Update the course status to verified after successful submission
       if (response.data.status === "verified") {
         await axios.post(`http://localhost:5000/api/user/verify-course`, { course });
-        setIsVerified(true); // Mark the course as verified
       }
     } catch (error) {
       console.error("Error submitting answers:", error);
@@ -60,15 +52,16 @@ const Verify = () => {
     return <p className="loading-text">Loading test...</p>;
   }
 
-  if (isVerified) {
+  if (result) {
     return (
       <div className="result-container">
-        <h2 className="result-title">Course Verified</h2>
-        <p>This course has already been verified.</p>
+        <h2 className="result-title">Test Result</h2>
+        <p>Score: {result.score}%</p>
+        <p>Status: {result.status}</p>
+        <p>{result.message}</p>
       </div>
     );
   }
-
 
   return (
     <div className="verify-container">
