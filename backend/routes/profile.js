@@ -103,46 +103,56 @@ router.post("/verify-otp", authenticateUser, validateOTP, async (req, res) => {
   }
 });
 
-// Create Profile endpoint with photo upload
-router.post("/create-profile", authenticateUser, upload.single("profilePhoto"), async (req, res) => {
-  try {
-    const { bio, name, age, qualifications, city, state, country, courses } = req.body;
-    const user = await User.findById(req.userId);
-    if (!user) return res.status(400).json({ message: "User not found" });
+// Create Profile endpoint with photo and certificate upload
+router.post(
+  "/create-profile",
+  authenticateUser,
+  upload.fields([
+    { name: "profilePhoto", maxCount: 1 }, // Handle profile photo upload
+  ]),
+  async (req, res) => {
+    try {
+      const { bio, name, age, qualifications, city, state, country, courses } = req.body;
+      const user = await User.findById(req.userId);
+      if (!user) return res.status(400).json({ message: "User not found" });
 
-    let profilePhotoBuffer = null;
-    if (req.file) {
-      profilePhotoBuffer = req.file.buffer; // Store the image as Buffer in memory
+      let profilePhotoBuffer = null;
+      if (req.files?.profilePhoto) {
+        profilePhotoBuffer = req.files.profilePhoto[0].buffer; // Store profile photo as Buffer
+      }
+
+      
+
+      const newProfile = new Profile({
+        userId: req.userId,
+        bio,
+        name,
+        age,
+        phone: user.phone,
+        qualifications,
+        city,
+        state,
+        country,
+        courses,
+        profilePhoto: profilePhotoBuffer, // Save profile photo
+      });
+
+      await newProfile.save();
+
+      // Update the user with the profile reference and award tokens
+      await User.findByIdAndUpdate(req.userId, {
+        profile: newProfile._id,
+        $inc: { tokens: 100 }, // Award 100 tokens for profile creation
+      });
+
+      res.status(201).json({ message: "Profile created successfully", profile: newProfile });
+    } catch (err) {
+      console.error(err);
+      res.status(500).json({ message: "Something went wrong. Please try again." });
     }
-
-    const newProfile = new Profile({
-      userId: req.userId,
-      bio,
-      name,
-      age,
-      phone: user.phone,
-      qualifications,
-      city,
-      state,
-      country,
-      courses,
-      profilePhoto: profilePhotoBuffer, // Save as Buffer
-    });
-
-    await newProfile.save();
-
-    // Update the user with the profile reference and award tokens
-    await User.findByIdAndUpdate(req.userId, {
-      profile: newProfile._id,
-      $inc: { tokens: 100 },
-    });
-
-    res.status(201).json({ message: "Profile created successfully", profile: newProfile });
-  } catch (err) {
-    console.error(err);
-    res.status(500).json({ message: "Something went wrong. Please try again." });
   }
-});
+);
+
 
 // Route to get the logged-in user's profile
 router.get("/my-profile", authenticateUser, async (req, res) => {
@@ -155,6 +165,7 @@ router.get("/my-profile", authenticateUser, async (req, res) => {
 
     // Convert the Buffer to Base64 for the profile photo
     const profilePhotoBase64 = profile.profilePhoto ? profile.profilePhoto.toString('base64') : null;
+
 
     res.status(200).json({
       ...profile.toObject(),

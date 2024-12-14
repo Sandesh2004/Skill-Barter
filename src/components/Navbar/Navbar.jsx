@@ -31,7 +31,7 @@ const Navbar = () => {
         {isDropdownOpen && (
           <div className="dropdown-menu">
             <Link to="/home/profile" className="dropdown-item">Profile</Link>
-            <a href="#settings" className="dropdown-item">Settings</a>
+            
             <a href="#logout" className="dropdown-item">Logout</a>
           </div>
         )}

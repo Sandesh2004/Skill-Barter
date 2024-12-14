@@ -1,3 +1,4 @@
+
 /* Dark Theme Styles */
 .footer-container {
   background-color: #1a1a1a;
@@ -26,6 +27,8 @@
   max-width: 300px; /* Limit the width of individual sections */
 }
 
+
+
 .footer-section h3 {
   color: #66b3ff;
   margin-bottom: 10px;
@@ -50,9 +53,6 @@
   color: #cccccc;
 }
 
-.footer-links a:hover {
-  color: #ffffff;
-}
 
 .footer-bottom {
   border-top: 1px solid #333333;
@@ -63,9 +63,7 @@
   padding: 10px 0;
 }
 
-.footer-link::after {
-  background-color: #66b3ff;
-}
+
 
 @media (max-width: 768px) {
   .footer-content {

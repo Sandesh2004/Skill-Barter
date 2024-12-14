@@ -1,5 +1,7 @@
 import React from 'react';
 import './Footer.css'; // Import the CSS for the Footer component
+import { Link } from 'react-router-dom'; // Import Link from react-router-dom
+
 
 function Footer() {
   return (
@@ -12,10 +14,11 @@ function Footer() {
 
         <div className="footer-section">
           <h3 className="footer-title">Quick Links</h3>
-          <ul className="footer-links">
-            <li><a href="#" className="footer-link">Home</a></li>
-            <li><a href="#" className="footer-link">Exchange</a></li>
-            <li><a href="#" className="footer-link">About Us</a></li>
+          <ul>
+                  <Link to="/home" className="nav-link">Home</Link> <br />
+                  <Link to="/home/exchange" className="nav-link">Exchange</Link> <br />
+                  <Link to="/home/notifications" className="nav-link">Notifications</Link> <br />
+                  <Link to="/home/about" className="nav-link">About Us</Link>
           </ul>
         </div>
 

@@ -26,8 +26,8 @@ const Home = () => {
             We are excited to have you back! Explore new skills, connect with other users, and share your knowledge.
           </p>
           <div className="content-buttons">
-            <button onClick={() => navigate("/explore")}>Explore Skills</button>
-            <button onClick={() => navigate("/my-skills")}>My Skills</button>
+            <button onClick={() => navigate("/home/exchange")}>Explore Skills</button>
+            <button onClick={() => navigate("/home/profile")}>My Skills</button>
           </div>
         </section>
 
